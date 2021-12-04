@@ -1,0 +1,59 @@
+﻿@model MedievalShop.Models.PurchasesViewModel
+@using MedievalShop.Helpers
+
+@{
+    ViewBag.Title = "Список покупок";
+}
+
+
+@section navbar {
+    @Html.ActionLink("Список товаров", "GetAllItems", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Список покупок", "GetPurchases", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Выйти", "Logout", "Home", new { area = "" }, new { @class = "navbar-brand" })
+}
+
+
+<h2>Здравствуйте, @Model.Client.Name! Вот ваш список покупок:</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Предмет")
+        </th>
+        <th>
+            @Html.DisplayName("Внешний вид")
+        </th>
+        <th>
+            @Html.DisplayName("Стоимость")
+        </th>
+        <th>
+            @Html.DisplayName("Дата покупки")
+        </th>
+    </tr>
+
+
+    @foreach (var p in Model.Purchases)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => p.Item.DisplayName)
+            </td>
+            <td>
+                @{string path = $"../../Content/Images/{p.Item.Name}.jpg";}
+                <img src=@path width="200" height="200" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => p.Item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => p.Date)
+            </td>
+        </tr>
+    }
+</table>
+
+
+<div class="btn-group">
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("GetPurchases", new { page = x }))
+</div>
+

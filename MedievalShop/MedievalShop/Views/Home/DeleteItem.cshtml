@@ -1,0 +1,49 @@
+﻿@model MedievalShop.Models.ItemViewModel
+
+@{
+    ViewBag.Title = "Удаление предмета";
+}
+
+@section navbar {
+    @Html.ActionLink("Список товаров", "GetAllItems", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Список клиентов", "GetAllClients", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Создать новый товар", "CreateItem", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Выйти", "Logout", "Home", new { area = "" }, new { @class = "navbar-brand" })
+}
+
+
+<h2>Удаление предмета</h2>
+
+<h3>Вы действительно собираетесь удалить предмет "@Model.Name"?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться назад", "GetAllItems")
+        </div>
+    }
+</div>

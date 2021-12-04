@@ -1,0 +1,67 @@
+﻿@model MedievalShop.Models.ClientsViewModel
+@using MedievalShop.Helpers
+@{
+    ViewBag.Title = "Клиенты";
+}
+
+@section navbar {
+    @Html.ActionLink("Список товаров", "GetAllItems", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Список клиентов", "GetAllClients", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Создать новый товар", "CreateItem", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Выйти", "Logout", "Home", new { area = "" }, new { @class = "navbar-brand" })
+}
+
+
+
+<form method="get">
+    <div class="form-inline">
+        <label class="control-label">Тип клиента: </label>
+        @Html.DropDownList("type", Model.Types as SelectList,
+                    htmlAttributes: new { @class = "form-control" })
+
+        <input type="submit" value="Фильтр" class="btn btn-default" />
+    </div>
+</form>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Имя клиента")
+        </th>
+        <th>
+            @Html.DisplayName("Логин клиента")
+        </th>
+        <th>
+            @Html.DisplayName("Пароль клиента")
+        </th>
+        <th>
+            @Html.DisplayName("Тип клиента")
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model.Clients)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientTypeText)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditClient", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteClient", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

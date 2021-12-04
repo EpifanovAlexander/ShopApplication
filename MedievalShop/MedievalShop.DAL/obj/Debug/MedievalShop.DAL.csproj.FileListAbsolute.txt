@@ -1,0 +1,14 @@
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\bin\Debug\MedievalShop.DAL.dll.config
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\bin\Debug\MedievalShop.DAL.dll
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\bin\Debug\MedievalShop.DAL.pdb
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\bin\Debug\EntityFramework.dll
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\bin\Debug\EntityFramework.xml
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\obj\Debug\MedievalShop.DAL.csprojAssemblyReference.cache
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\obj\Debug\MedievalShop.DAL.csproj.CoreCompileInputs.cache
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\obj\Debug\MedievalShop.DAL.csproj.CopyComplete
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\obj\Debug\MedievalShop.DAL.dll
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\obj\Debug\MedievalShop.DAL.pdb
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\obj\Debug\MedievalShop.DAL.Migrations.ShopContext.resources
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.DAL\obj\Debug\MedievalShop.DAL.csproj.GenerateResource.cache

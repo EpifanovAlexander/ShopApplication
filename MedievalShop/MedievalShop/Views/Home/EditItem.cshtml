@@ -1,0 +1,94 @@
+﻿@model MedievalShop.Models.ItemViewModel
+
+@{
+    ViewBag.Title = "EditItem";
+}
+
+@{
+    ViewBag.Title = "Изменение предмета";
+}
+
+@section navbar {
+    @Html.ActionLink("Список товаров", "GetAllItems", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Список клиентов", "GetAllClients", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Создать новый товар", "CreateItem", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Выйти", "Logout", "Home", new { area = "" }, new { @class = "navbar-brand" })
+}
+
+<h2>Изменение предмета</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Предмет @Model.Name</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DisplayName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DisplayName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DisplayName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ItemType, "Тип предмета", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ItemType", @ViewBag.ItemTypes as SelectList, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ItemType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @using (Ajax.BeginForm("EditItemImage", new AjaxOptions { UpdateTargetId = "imgItem" }))
+            {
+                @Html.Label("Новое изображение", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-offset-5" style="margin-left: 37%">
+                    <input type="submit" value="Найти" />
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.Label("Изображение")
+            </div>
+            <div class="col-md-10">
+                @{string path = $"../../Content/Images/{Model.Name}.jpg";}
+                <img src=@path width="200" height="200" id="imgItem" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Вернуться назад", "GetAllItems")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

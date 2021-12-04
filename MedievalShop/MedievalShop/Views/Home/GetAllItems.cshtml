@@ -1,0 +1,98 @@
+﻿@model MedievalShop.Models.ItemsViewModel
+@using MedievalShop.Helpers
+@{
+    ViewBag.Title = "Предметы";
+}
+
+@section navbar {
+    @Html.ActionLink("Список товаров", "GetAllItems", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+    @if (@Request.Cookies["clientType"].Value == "Admin")
+    {
+        @Html.ActionLink("Список клиентов", "GetAllClients", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        @Html.ActionLink("Создать новый товар", "CreateItem", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    }
+    else
+    {
+        @Html.ActionLink("Список покупок", "GetPurchases", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    }
+
+    @Html.ActionLink("Выйти", "Logout", "Home", new { area = "" }, new { @class = "navbar-brand" })
+}
+
+
+<form method="get">
+    <div class="form-inline">
+        <label class="control-label">Тип предмета: </label>
+        @Html.DropDownList("type", Model.Types as SelectList,
+                    htmlAttributes: new { @class = "form-control" })
+
+        <label class="control-label">Предел стоимости: </label>
+        <input type="number" name="price" value=@ViewBag.PriceFilter min="0" max=@ViewBag.MaxPrice class="form-control">
+        <input type="hidden" name="page" value=@ViewBag.Page>
+
+        <input type="submit" value="Фильтр" class="btn btn-default" />
+    </div>
+</form>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Название предмета")
+        </th>
+        <th>
+            @Html.DisplayName("Цена предмета")
+        </th>
+        <th>
+            @Html.DisplayName("Тип предмета")
+        </th>
+        <th>
+            @Html.DisplayName("Внешний вид предмета")
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemTypeText)
+            </td>
+            <td>
+                @{string path = $"../../Content/Images/{item.Name}.jpg";}
+                <img src=@path width="200" height="200" />
+            </td>
+            <td>
+                @if (@Request.Cookies["clientType"].Value == "Admin")
+                {
+                    @Html.ActionLink("Edit", "EditItem", new { id = item.Id }, new { style = "padding-right: 10%" });
+                    @Html.Label("|")
+                    @Html.ActionLink("Delete", "DeleteItem", new { id = item.Id }, new { style = "padding-left: 10%" })
+                }
+                else
+                {
+                    using (Html.BeginForm("BuyItem", "Home", FormMethod.Post))
+                    {
+                        @Html.Hidden("ClientId", Convert.ToInt32(Session["clientId"]))
+                        @Html.Hidden("ItemId", item.Id)
+                        <input type="submit" value="Купить" />
+                    }
+                }
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<div class="btn-group">
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("GetAllItems", new { page = x, price = @ViewBag.PriceFilter, type = @ViewBag.Type }))
+</div>
+
+

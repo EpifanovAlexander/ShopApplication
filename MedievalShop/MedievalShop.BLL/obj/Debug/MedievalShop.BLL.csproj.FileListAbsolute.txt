@@ -1,0 +1,16 @@
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\bin\Debug\MedievalShop.BLL.dll
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\bin\Debug\MedievalShop.BLL.pdb
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\bin\Debug\AutoMapper.dll
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\bin\Debug\MedievalShop.DAL.dll
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\bin\Debug\Ninject.dll
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\bin\Debug\EntityFramework.dll
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\bin\Debug\MedievalShop.DAL.pdb
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\bin\Debug\MedievalShop.DAL.dll.config
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\bin\Debug\AutoMapper.xml
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\bin\Debug\Ninject.xml
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\bin\Debug\EntityFramework.xml
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\obj\Debug\MedievalShop.BLL.csprojAssemblyReference.cache
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\obj\Debug\MedievalShop.BLL.csproj.CoreCompileInputs.cache
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\obj\Debug\MedievalShop.BLL.csproj.CopyComplete
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\obj\Debug\MedievalShop.BLL.dll
+D:\Мои вещи\Проги\AspMvcProject\MedievalShop\MedievalShop.BLL\obj\Debug\MedievalShop.BLL.pdb
